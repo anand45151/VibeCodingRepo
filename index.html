@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibe Coding - Group Randomizer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Grid background -->
+        <div class="grid-background"></div>
+
+        <!-- Glow blobs -->
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+
+        <div class="content">
+            <!-- Header -->
+            <div class="header">
+                <div class="header-subtitle">✦ SEM-4 · Batch A · Today's Session ✦</div>
+                <h1 class="header-title">VIBE CODING</h1>
+                <h2 class="header-subtitle-2">GROUP RANDOMIZER</h2>
+                <div class="student-count">53 students · ~14 groups</div>
+            </div>
+
+            <!-- Controls -->
+            <div class="controls">
+                <div class="group-size-selector">
+                    <span>GROUP SIZE</span>
+                    <button class="size-btn" data-size="3">3</button>
+                    <button class="size-btn active" data-size="4">4</button>
+                    <button class="size-btn" data-size="5">5</button>
+                    <button class="size-btn" data-size="6">6</button>
+                </div>
+
+                <button id="generate-btn" class="generate-btn">🎲 Generate Groups!</button>
+            </div>
+
+            <!-- Groups Grid -->
+            <div id="groups-container" class="groups-container"></div>
+
+            <!-- Empty state -->
+            <div id="empty-state" class="empty-state">
+                <div>🎲</div>
+                <div>HIT GENERATE TO START</div>
+                <div>53 students are waiting for their squads</div>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                BCA (H-NIC) + BSc IT (H-NIC) · SEM-4 BATCH A · <span id="current-date"></span>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
