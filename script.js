@@ -104,8 +104,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentDate = document.getElementById('current-date');
 
     let groupSize = 4;
-    let spinning = false;
-    let revealed = false;
 
     // Set current date
     currentDate.textContent = new Date().toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" });
@@ -121,29 +119,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Generate groups
     generateBtn.addEventListener('click', () => {
-        if (spinning) return;
-        spinning = true;
-        revealed = false;
-        generateBtn.textContent = "🎲 Shuffling...";
-        groupsContainer.innerHTML = '';
-        emptyState.style.display = 'none';
-
-        let count = 0;
-        const interval = setInterval(() => {
-            const groups = makeGroups(groupSize);
-            renderGroups(groups);
-            count++;
-            if (count >= 18) {
-                clearInterval(interval);
-                spinning = false;
-                revealed = true;
-                generateBtn.textContent = "🔀 Re-Shuffle!";
-            }
-        }, 80);
+        const groups = makeGroups(groupSize);
+        renderGroups(groups);
     });
 
     function renderGroups(groups) {
         groupsContainer.innerHTML = '';
+        emptyState.style.display = 'none';
+
         groups.forEach((group, gi) => {
             const color = groupColors[gi % groupColors.length];
             const vibe = vibeNames[gi % vibeNames.length];
@@ -151,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const groupCard = document.createElement('div');
             groupCard.className = 'group-card';
             groupCard.style.border = `1px solid ${color.bg}55`;
-            groupCard.style.boxShadow = revealed ? `0 4px 24px ${color.bg}22` : 'none';
+            groupCard.style.boxShadow = `0 4px 24px ${color.bg}22`;
 
             groupCard.innerHTML = `
                 <div class="group-header" style="background: linear-gradient(135deg, ${color.bg}33, ${color.bg}11); border-bottom: 1px solid ${color.bg}44;">
